@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "header": {
+      "title": "Comprar boletos"
+    },
+    "paymentMethod": {
+      "title": "Método de pago",
+      "textButton": {
+        "title": "Modificar"
+      }
+    },
+    "priceInfo": {
+      "title": "Suscripción mensual",
+      "recurrence ": "mes"
+    },
+    "button": {
+      "title": "Confirmar pago"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Seleccionar método de pago"
+    }
+  }
+}

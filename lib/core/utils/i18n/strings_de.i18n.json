@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "header": {
+      "title": "Tickets bestellen"
+    },
+    "paymentMethod": {
+      "title": "Zahlungsmethode",
+      "textButton": {
+        "title": "Ändern"
+      }
+    },
+    "priceInfo": {
+      "title": "Monatliches Abonnement",
+      "recurrence ": "Monat"
+    },
+    "button": {
+      "title": "Zahlung bestätigen"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Zahlungsmethode auswählen"
+    }
+  }
+}

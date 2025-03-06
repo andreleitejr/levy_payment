@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "header": {
+      "title": "Comprar Bilhetes"
+    },
+    "paymentMethod": {
+      "title": "Método de Pagamento",
+      "textButton": {
+        "title": "Modificar"
+      }
+    },
+    "priceInfo": {
+      "title": "Assinatura Mensal",
+      "recurrence ": "mês"
+    },
+    "button": {
+      "title": "Confirmar Pagamento"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Selecionar Método de Pagamento"
+    }
+  }
+}

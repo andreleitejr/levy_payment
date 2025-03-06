@@ -1,0 +1,25 @@
+{
+  "payment": {
+    "header": {
+      "title": "Order tickets"
+    },
+    "paymentMethod": {
+      "title": "Payment Method",
+      "textButton": {
+        "title": "Modify"
+      }
+    },
+    "priceInfo": {
+      "title": "Monthly subscription",
+      "recurrence ": "month"
+    },
+    "button": {
+      "title": "Confirm Payment"
+    }
+  },
+  "paymentMethod": {
+    "header": {
+      "title": "Select payment method"
+    }
+  }
+}
