@@ -28,7 +28,6 @@ dependencies:
   auto_route:
   flutter_riverpod:
   get_it:
-  google_maps_flutter:
   injectable:
   json_annotation:
   intl:
