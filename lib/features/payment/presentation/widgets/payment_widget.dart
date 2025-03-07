@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:levy_core/core.dart';
 import 'package:levy_payment/features/payment/presentation/utils/payment_translation.dart';
 import 'package:levy_payment/features/payment_method/domain/entities/payment_method_entity.dart';
-import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/shared_entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
 
 final class PaymentWidget extends StatelessWidget {

@@ -14,7 +14,7 @@ import 'package:levy_payment/features/payment/presentation/pages/payment_page.da
     as _i2;
 import 'package:levy_payment/features/payment_method/presentation/pages/payment_method_page.dart'
     as _i1;
-import 'package:levy_shared_entities/entities.dart' as _i5;
+import 'package:levy_shared_entities/shared_entities.dart' as _i5;
 
 /// generated route for
 /// [_i1.PaymentMethodPage]

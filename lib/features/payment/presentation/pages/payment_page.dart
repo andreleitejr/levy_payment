@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:levy_payment/payment.dart';
-import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/shared_entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
 import 'package:uuid/uuid.dart';
 

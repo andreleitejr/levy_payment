@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:levy_payment/payment.dart';
-import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/shared_entities.dart';
 
 final class PaymentNotifier extends StateNotifier<PaymentState> {
   final ProcessPaymentUseCase _usecase;

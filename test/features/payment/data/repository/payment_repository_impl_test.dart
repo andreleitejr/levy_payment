@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:levy_payment/payment.dart';
-import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/shared_entities.dart';
 import 'package:mocktail/mocktail.dart';
 
 final class PaymentDataSourceMock extends Mock implements PaymentDataSource {}

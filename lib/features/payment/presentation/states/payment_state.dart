@@ -1,5 +1,5 @@
 import 'package:levy_payment/payment.dart';
-import 'package:levy_shared_entities/entities.dart';
+import 'package:levy_shared_entities/shared_entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
 
 final class PaymentState implements GenericStateBase {
