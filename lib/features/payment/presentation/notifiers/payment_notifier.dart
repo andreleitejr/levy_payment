@@ -4,17 +4,15 @@ import 'package:levy_shared_entities/shared_entities.dart';
 
 final class PaymentNotifier extends StateNotifier<PaymentState> {
   final ProcessPaymentUseCase _usecase;
+  final List<BusEntity> _buses;
 
-  PaymentNotifier(this._usecase) : super(PaymentState.loading());
+  PaymentNotifier(this._usecase, this._buses) : super(PaymentState.loading());
 
-  Future<void> init({
-    required BusEntity departureBus,
-    required BusEntity returnBus,
-  }) async {
+  Future<void> init() async {
     try {
       state = PaymentState.initial(
-        departureBus: departureBus,
-        returnBus: returnBus,
+        departureBus: _buses.first,
+        returnBus: _buses.last,
       );
     } catch (e) {
       state = PaymentState.error('Failed to init payment: ${e.toString()}');

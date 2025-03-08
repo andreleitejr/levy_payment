@@ -1,22 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 import 'package:levy_payment/payment.dart';
-import 'package:levy_shared_entities/shared_entities.dart';
 import 'package:levy_theme/core/theme/theme.dart';
-import 'package:uuid/uuid.dart';
 
 @RoutePage()
 final class PaymentPage extends ConsumerStatefulWidget {
   const PaymentPage({
     super.key,
-    required this.departureBus,
-    required this.returnBus,
   });
-
-  final BusEntity departureBus;
-  final BusEntity returnBus;
 
   @override
   ConsumerState<PaymentPage> createState() => _PaymentPageState();
@@ -29,8 +21,6 @@ final class _PaymentPageState extends ConsumerState<PaymentPage> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(paymentNotifierProvider.notifier).init(
-            departureBus: widget.departureBus,
-            returnBus: widget.returnBus,
           );
     });
   }
@@ -78,8 +68,7 @@ final class _PaymentPageState extends ConsumerState<PaymentPage> {
   }
 
   Future<void> _onPaymentMethodPressed(PaymentNotifier notifier) async {
-    final paymentMethod =
-        await context.router.pushNamed<PaymentMethodEntity>('payment_method');
+    final paymentMethod = await context.router.pushNamed<PaymentMethodEntity>('/payment_method');
 
     if (paymentMethod != null) {
       notifier.updatePaymentMethod(paymentMethod);
@@ -103,41 +92,10 @@ final class _PaymentPageState extends ConsumerState<PaymentPage> {
         method: paymentMethod,
       );
 
-      final isSuccess = result == PaymentResult.success;
-
-      if (isSuccess) {
-        await _handleReservation(state);
+      if (result == PaymentResult.success) {
+        if(!mounted) return;
+        context.router.replaceNamed('/home');
       }
-    }
-  }
-
-  Future<void> _handleReservation(PaymentState state) async {
-    final router = context.router;
-
-    /// TODO: Remover
-    // final reservationUseCase = ref.read(createReservationUseCaseProvider);
-
-    final user = GetIt.instance<UserEntity>();
-
-    final uuid = Uuid();
-    final reservationId = uuid.v4();
-    final paymentId = uuid.v4();
-    final date = DateTime.now().toString();
-
-    final departureBus = state.departureBus;
-    final returnBus = state.returnBus;
-
-    if (departureBus != null && returnBus != null) {
-      final reservation = ReservationModel(
-        reservationId: reservationId,
-        userId: user.id,
-        paymentId: paymentId,
-        date: date,
-      );
-
-      // await reservationUseCase.call(reservation);
-
-      router.replaceNamed('/home');
     }
   }
 }

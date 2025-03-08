@@ -11,7 +11,10 @@ export 'package:levy_payment/features/payment/domain/usecases/process_payment_us
 export 'package:levy_payment/features/payment/enums/payment_result.dart';
 export 'package:levy_payment/features/payment/presentation/notifiers/payment_notifier.dart';
 export 'package:levy_payment/features/payment/presentation/pages/payment_page.dart';
-export 'package:levy_payment/features/payment/presentation/providers/payment_providers.dart';
+export 'package:levy_payment/features/payment/presentation/providers/payment_datasource_provider.dart';
+export 'package:levy_payment/features/payment/presentation/providers/payment_notifier_provider.dart';
+export 'package:levy_payment/features/payment/presentation/providers/payment_repository_provider.dart';
+export 'package:levy_payment/features/payment/presentation/providers/payment_usecase_provider.dart';
 export 'package:levy_payment/features/payment/presentation/states/payment_state.dart';
 export 'package:levy_payment/features/payment/presentation/utils/payment_translation.dart';
 export 'package:levy_payment/features/payment/presentation/widgets/payment_widget.dart';

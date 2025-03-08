@@ -6,5 +6,6 @@ final class PaymentRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(page: PaymentRoute.page),
+    AutoRoute(page: PaymentMethodRoute.page),
   ];
 }

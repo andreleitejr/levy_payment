@@ -10,7 +10,8 @@ import 'package:mocktail/mocktail.dart';
 
 final class PaymentDataSourceMock extends Mock implements PaymentDataSource {}
 
-final class ProcessPaymentUseCaseMock extends Mock implements ProcessPaymentUseCase {}
+final class ProcessPaymentUseCaseMock extends Mock
+    implements ProcessPaymentUseCase {}
 
 void main() {
   late PaymentDataSourceMock paymentDataSourceMock;
@@ -18,25 +19,28 @@ void main() {
 
   late ReservationEntity reservationMock;
   late PaymentMethodEntity paymentMethodMock;
-  late BusEntity busMock;
 
   setUpAll(() {
     paymentDataSourceMock = PaymentDataSourceMock();
     processPaymentUseCaseMock = ProcessPaymentUseCaseMock();
 
     reservationMock = ReservationModel.fromJson(ReservationMock.response);
-    paymentMethodMock = PaymentMethodModel.fromJson(PaymentMethodMock.response.first);
-    busMock = BusModel.fromJson(BusMock.response.first);
+    paymentMethodMock =
+        PaymentMethodModel.fromJson(PaymentMethodMock.response.first);
 
-    GetIt.instance.registerFactory<PaymentDataSource>(() => paymentDataSourceMock);
-    GetIt.instance.registerFactory<ProcessPaymentUseCase>(() => processPaymentUseCaseMock);
+    GetIt.instance
+        .registerFactory<PaymentDataSource>(() => paymentDataSourceMock);
+    GetIt.instance.registerFactory<ProcessPaymentUseCase>(
+        () => processPaymentUseCaseMock);
   });
 
   group('Payment Page Golden Test', () {
     testWidgets('Payment Page Error', (tester) async {
       final errorMessage = 'Failed to load payments';
 
-      when(() => processPaymentUseCaseMock(reservation: reservationMock, method: paymentMethodMock)).thenThrow(Exception(errorMessage));
+      when(() => processPaymentUseCaseMock(
+          reservation: reservationMock,
+          method: paymentMethodMock)).thenThrow(Exception(errorMessage));
 
       await runGoldenTestForDifferentScreenSizes(
         tester: tester,
@@ -51,18 +55,15 @@ void main() {
       final c = Completer<PaymentResult>();
 
       when(() => paymentDataSourceMock.processPayment(
-        reservation: reservationMock,
-        method: paymentMethodMock,
-      )).thenAnswer((_) async {
+            reservation: reservationMock,
+            method: paymentMethodMock,
+          )).thenAnswer((_) async {
         return c.future;
       });
 
       await runGoldenTestForDifferentScreenSizes(
         tester: tester,
-        widget: PaymentPage(
-          departureBus: busMock,
-          returnBus: busMock,
-        ),
+        widget: PaymentPage(),
         testName: 'PaymentSuccess',
       );
 
